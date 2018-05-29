@@ -1,19 +1,19 @@
-import React from 'react';
+import React from 'react'
 import {
   View,
   Image,
   Keyboard
-} from 'react-native';
+} from 'react-native'
 import {
   RkButton,
   RkText,
   RkTextInput,
   RkAvoidKeyboard, RkStyleSheet
-} from 'react-native-ui-kitten';
-import {FontAwesome} from '../../assets/icons';
-import {GradientButton} from '../../components/gradientButton';
-import {RkTheme} from 'react-native-ui-kitten';
-import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
+} from 'react-native-ui-kitten'
+import {FontAwesome} from '../../assets/icons'
+import {GradientButton} from '../../components/gradientButton'
+import {RkTheme} from 'react-native-ui-kitten'
+import {scale, scaleModerate, scaleVertical} from '../../utils/scale'
 
 export class LoginV2 extends React.Component {
   static navigationOptions = {
@@ -21,15 +21,15 @@ export class LoginV2 extends React.Component {
   };
 
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   render() {
     let renderIcon = () => {
       if (RkTheme.current.name === 'light')
-        return <Image style={styles.image} source={require('../../assets/images/logo.png')}/>;
+        return <Image style={styles.image} source={require('../../assets/images/logo.png')}/>
       return <Image style={styles.image} source={require('../../assets/images/logoDark.png')}/>
-    };
+    }
 
     return (
       <RkAvoidKeyboard
@@ -112,4 +112,4 @@ let styles = RkStyleSheet.create(theme => ({
     borderColor: theme.colors.border.solid
   },
   footer: {}
-}));
+}))

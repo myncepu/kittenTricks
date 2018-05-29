@@ -1,6 +1,6 @@
-import {FontIcons} from '../../assets/icons';
-import * as Screens from '../../screens/index';
-import _ from 'lodash';
+import {FontIcons} from '../../assets/icons'
+import * as Screens from '../../screens/index'
+import _ from 'lodash'
 
 export const MainRoutes = [
   {
@@ -256,14 +256,14 @@ export const MainRoutes = [
     screen: Screens.Themes,
     children: []
   },
-];
+]
 
-let menuRoutes = _.cloneDeep(MainRoutes);
+let menuRoutes = _.cloneDeep(MainRoutes)
 menuRoutes.unshift({
   id: 'GridV2',
   title: 'Start',
   screen: Screens.GridV2,
   children: []
-},);
+},)
 
-export const MenuRoutes = menuRoutes;
+export const MenuRoutes = menuRoutes

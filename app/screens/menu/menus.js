@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-import {CategoryMenu} from './categoryMenu';
-import * as Routes from '../../config/navigation/routesBuilder';
+import {CategoryMenu} from './categoryMenu'
+import * as Routes from '../../config/navigation/routesBuilder'
 
 export class LoginMenu extends React.Component {
   static navigationOptions = {
@@ -9,7 +9,7 @@ export class LoginMenu extends React.Component {
   };
   render() {
     return (
-     <CategoryMenu navigation={this.props.navigation} items={Routes.LoginRoutes}/>
+      <CategoryMenu navigation={this.props.navigation} items={Routes.LoginRoutes}/>
     )
   }
 }

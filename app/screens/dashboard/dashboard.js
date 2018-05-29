@@ -1,25 +1,25 @@
-import React from 'react';
+import React from 'react'
 import {
   View,
   Image,
   ScrollView,
   Dimensions
-} from 'react-native';
+} from 'react-native'
 
 import {
   RkText,
   RkStyleSheet,
   RkTheme,
-} from 'react-native-ui-kitten';
+} from 'react-native-ui-kitten'
 
-import {FontAwesome} from '../../assets/icons';
+import {FontAwesome} from '../../assets/icons'
 
 import {
   ProgressChart,
   DoughnutChart,
   AreaChart,
   AreaSmoothedChart
-} from '../../components/';
+} from '../../components/'
 
 
 export class Dashboard extends React.Component {
@@ -29,7 +29,7 @@ export class Dashboard extends React.Component {
   };
 
   constructor(props) {
-    super(props);
+    super(props)
     this.data = {
       statItems: [
         {
@@ -51,7 +51,7 @@ export class Dashboard extends React.Component {
           background: RkTheme.current.colors.dashboard.likes
         },
       ]
-    };
+    }
   }
 
   renderStatItem(item) {
@@ -67,7 +67,7 @@ export class Dashboard extends React.Component {
   }
 
   render() {
-    let chartBlockStyles = [styles.chartBlock, {backgroundColor: RkTheme.current.colors.control.background}];
+    let chartBlockStyles = [styles.chartBlock, {backgroundColor: RkTheme.current.colors.control.background}]
     return (
       <ScrollView style={styles.screen}>
         <View style={styles.statItems}>
@@ -123,6 +123,6 @@ let styles = RkStyleSheet.create(theme => ({
     marginBottom: 15,
     justifyContent: 'center'
   },
-}));
+}))
 
 

@@ -1,27 +1,27 @@
-import React from 'react';
+import React from 'react'
 import {
   View
-} from 'react-native';
+} from 'react-native'
 import {
   RkComponent,
   RkText,
   RkTheme,
   RkStyleSheet
-} from 'react-native-ui-kitten';
+} from 'react-native-ui-kitten'
 import {
   VictoryPie,
-} from "victory-native";
+} from 'victory-native'
 
-import {Svg, Text as SvgText} from 'react-native-svg';
-import {scale} from '../../utils/scale';
+import {Svg, Text as SvgText} from 'react-native-svg'
+import {scale} from '../../utils/scale'
 
 export class ProgressChart extends RkComponent {
 
 
   constructor(props) {
-    super(props);
-    this.size = 120;
-    this.fontSize = 25;
+    super(props)
+    this.size = 120
+    this.fontSize = 25
     this.state = {
       percents: 72
     }
@@ -29,7 +29,7 @@ export class ProgressChart extends RkComponent {
 
   componentDidMount() {
     this.setStateInterval = setInterval(() => {
-      let positive = Math.random() > 0.5;
+      let positive = Math.random() > 0.5
       if (this.state.percents > 95) {
         positive = false
       } else if (this.state.percents < 60) {
@@ -37,12 +37,12 @@ export class ProgressChart extends RkComponent {
       }
       this.setState({
         percents: positive ? this.state.percents + 1 : this.state.percents - 1
-      });
-    }, 1500);
+      })
+    }, 1500)
   }
 
   componentWillUnmount() {
-    clearInterval(this.setStateInterval);
+    clearInterval(this.setStateInterval)
   }
 
   getData() {
@@ -63,8 +63,8 @@ export class ProgressChart extends RkComponent {
               style={{
                 data: {
                   fill: (d) => {
-                    const color = RkTheme.current.colors.charts.followersProgress;
-                    return d.x === 1 ? color : 'transparent';
+                    const color = RkTheme.current.colors.charts.followersProgress
+                    return d.x === 1 ? color : 'transparent'
                   }
                 }
               }}
@@ -103,4 +103,4 @@ let styles = RkStyleSheet.create(theme => ({
     alignItems: 'center',
     marginTop: 10
   }
-}));
+}))

@@ -9,45 +9,45 @@ import _ from 'lodash'
 class DataProvider {
 
   getUser(id = 1) {
-    return _.find(users, x => x.id == id);
+    return _.find(users, x => x.id == id)
   }
 
   getUsers() {
-    return users;
+    return users
   }
 
   getNotifications() {
-    return notifications;
+    return notifications
   }
 
   getArticles(type = 'article') {
-    return _.filter(articles, x => x.type == type);
+    return _.filter(articles, x => x.type == type)
   }
 
   getArticle(id) {
-    return _.find(articles, x => x.id == id);
+    return _.find(articles, x => x.id == id)
   }
 
 
   getConversation(userId = 1) {
-    return _.find(conversations, x => x.withUser.id == userId);
+    return _.find(conversations, x => x.withUser.id == userId)
   }
 
   getChatList() {
-    return conversations;
+    return conversations
   }
 
   getComments(postId = 1) {
-    return this.getArticle(postId).comments;
+    return this.getArticle(postId).comments
   }
 
   getCards() {
-    return cards;
+    return cards
   }
 
   populateData() {
-    populate();
+    populate()
   }
 }
 
-export let data = new DataProvider();
+export let data = new DataProvider()

@@ -1,16 +1,16 @@
-import React from 'react';
+import React from 'react'
 import {
   FlatList,
   Image,
   View,
   TouchableOpacity
-} from 'react-native';
+} from 'react-native'
 import {
   RkText,
   RkCard, RkStyleSheet
-} from 'react-native-ui-kitten';
-import {SocialBar} from '../../components';
-import {data} from '../../data';
+} from 'react-native-ui-kitten'
+import {SocialBar} from '../../components'
+import {data} from '../../data'
 
 
 export class Articles4 extends React.Component {
@@ -19,13 +19,13 @@ export class Articles4 extends React.Component {
   };
 
   constructor(props) {
-    super(props);
-    this.data = data.getArticles('fact');
-    this.renderItem = this._renderItem.bind(this);
+    super(props)
+    this.data = data.getArticles('fact')
+    this.renderItem = this._renderItem.bind(this)
   }
 
   _keyExtractor(post) {
-    return post.id;
+    return post.id
   }
 
   _renderItem(info) {
@@ -76,4 +76,4 @@ let styles = RkStyleSheet.create(theme => ({
   post: {
     marginTop: 13
   }
-}));
+}))

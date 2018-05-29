@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   TouchableHighlight,
   View,
@@ -6,21 +6,21 @@ import {
   Image,
   Platform,
   StyleSheet
-} from 'react-native';
-import {NavigationActions} from 'react-navigation';
+} from 'react-native'
+import {NavigationActions} from 'react-navigation'
 import {
   RkStyleSheet,
   RkText,
   RkTheme
-} from 'react-native-ui-kitten';
-import {MainRoutes} from '../../config/navigation/routes';
-import {FontAwesome} from '../../assets/icons';
+} from 'react-native-ui-kitten'
+import {MainRoutes} from '../../config/navigation/routes'
+import {FontAwesome} from '../../assets/icons'
 
 export class SideMenu extends React.Component {
 
   constructor(props) {
-    super(props);
-    this._navigateAction = this._navigate.bind(this);
+    super(props)
+    this._navigateAction = this._navigate.bind(this)
   }
 
   _navigate(route) {
@@ -29,13 +29,13 @@ export class SideMenu extends React.Component {
       actions: [
         NavigationActions.navigate({routeName: route.id})
       ]
-    });
+    })
     this.props.navigation.dispatch(resetAction)
   }
 
   _renderIcon() {
     if (RkTheme.current.name === 'light')
-      return <Image style={styles.icon} source={require('../../assets/images/smallLogo.png')}/>;
+      return <Image style={styles.icon} source={require('../../assets/images/smallLogo.png')}/>
     return <Image style={styles.icon} source={require('../../assets/images/smallLogoDark.png')}/>
 
   }
@@ -52,14 +52,14 @@ export class SideMenu extends React.Component {
           <View style={styles.content}>
             <View style={styles.content}>
               <RkText style={styles.icon}
-                      rkType='moon primary xlarge'>{route.icon}</RkText>
+                rkType='moon primary xlarge'>{route.icon}</RkText>
               <RkText>{route.title}</RkText>
             </View>
             <RkText rkType='awesome secondaryColor small'>{FontAwesome.chevronRight}</RkText>
           </View>
         </TouchableHighlight>
       )
-    });
+    })
 
     return (
       <View style={styles.root}>
@@ -95,4 +95,4 @@ let styles = RkStyleSheet.create(theme => ({
   icon: {
     marginRight: 13,
   }
-}));
+}))

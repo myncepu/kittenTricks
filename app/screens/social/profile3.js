@@ -1,17 +1,17 @@
-import React from 'react';
+import React from 'react'
 import {
   View,
   ScrollView
-} from 'react-native';
+} from 'react-native'
 import {
   RkStyleSheet,
   RkText
-} from 'react-native-ui-kitten';
-import {Avatar} from '../../components';
-import {Gallery} from '../../components';
-import {GradientButton} from '../../components';
-import {data} from '../../data';
-import formatNumber from '../../utils/textUtils';
+} from 'react-native-ui-kitten'
+import {Avatar} from '../../components'
+import {Gallery} from '../../components'
+import {GradientButton} from '../../components'
+import {data} from '../../data'
+import formatNumber from '../../utils/textUtils'
 
 export class ProfileV3 extends React.Component {
   static navigationOptions = {
@@ -19,13 +19,13 @@ export class ProfileV3 extends React.Component {
   };
 
   constructor(props) {
-    super(props);
-    this.user = data.getUser();
+    super(props)
+    this.user = data.getUser()
   }
 
   render() {
-    let name = `${this.user.firstName} ${this.user.lastName}`;
-    let images = this.user.images;
+    let name = `${this.user.firstName} ${this.user.lastName}`
+    let images = this.user.images
     return (
       <ScrollView style={styles.root}>
         <View style={[styles.header, styles.bordered]}>
@@ -96,4 +96,4 @@ let styles = RkStyleSheet.create(theme => ({
     width: 140
   },
 
-}));
+}))

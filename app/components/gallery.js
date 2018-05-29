@@ -1,23 +1,23 @@
-import React from 'react';
+import React from 'react'
 import {
   View,
   ListView,
   Dimensions,
   StyleSheet
-} from 'react-native';
+} from 'react-native'
 import {
   RkText,
   RkButton,
   RkModalImg
-} from 'react-native-ui-kitten';
-import {Ellipsis} from './ellipsis';
+} from 'react-native-ui-kitten'
+import {Ellipsis} from './ellipsis'
 import {SocialBar} from './socialBar'
 
 export class Gallery extends React.Component {
 
   constructor(props) {
-    super(props);
-    let source = new ListView.DataSource({rowHasChanged: (r1, r2) => r1.id !== r2.id});
+    super(props)
+    let source = new ListView.DataSource({rowHasChanged: (r1, r2) => r1.id !== r2.id})
     this.state = {
       images: source.cloneWithRows(this.props.items)
     }
@@ -32,17 +32,17 @@ export class Gallery extends React.Component {
           <Ellipsis/>
         </RkButton>
       </View>
-    );
+    )
   }
 
   _renderFooter(options) {
     return (
       <SocialBar/>
-    );
+    )
   }
 
   render() {
-    let size = (Dimensions.get('window').width - 12 ) / 3;
+    let size = (Dimensions.get('window').width - 12 ) / 3
     return (
       <View style={styles.images}>
         <ListView
@@ -73,4 +73,4 @@ let styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between'
   }
-});
+})

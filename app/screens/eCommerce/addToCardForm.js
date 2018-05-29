@@ -1,20 +1,20 @@
-import React from 'react';
+import React from 'react'
 import {
   View,
   Keyboard,
   TouchableOpacity,
-} from 'react-native';
+} from 'react-native'
 import {
   RkText,
   RkTextInput,
   RkStyleSheet,
   RkAvoidKeyboard
-} from 'react-native-ui-kitten';
-import {GradientButton} from '../../components/';
-import {PasswordTextInput} from '../../components/passwordTextInput';
-import {DatePicker} from '../../components/picker/datePicker';
-import {CardInput} from '../../components/cardInput';
-import {scale} from '../../utils/scale';
+} from 'react-native-ui-kitten'
+import {GradientButton} from '../../components/'
+import {PasswordTextInput} from '../../components/passwordTextInput'
+import {DatePicker} from '../../components/picker/datePicker'
+import {CardInput} from '../../components/cardInput'
+import {scale} from '../../utils/scale'
 
 export class AddToCardForm extends React.Component {
   static navigationOptions = {
@@ -22,7 +22,7 @@ export class AddToCardForm extends React.Component {
   };
 
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       cardNumber: '',
       nameOnCard: '',
@@ -30,17 +30,17 @@ export class AddToCardForm extends React.Component {
       expireYear: 2017,
       expireMonth: 8,
       pickerVisible: false,
-    };
+    }
   }
 
   handlePickedDate(date) {
-    console.log(date);
-    this.setState({expireMonth: date.month.key, expireYear: date.year});
+    console.log(date)
+    this.setState({expireMonth: date.month.key, expireYear: date.year})
     this.hidePicker()
   }
 
   hidePicker() {
-    this.setState({pickerVisible: false});
+    this.setState({pickerVisible: false})
   }
 
   render() {
@@ -93,8 +93,8 @@ export class AddToCardForm extends React.Component {
                 <RkText rkType='subtitle'>Name On Card</RkText>
               </View>
               <RkTextInput rkType='rounded'
-                           onChangeText={(nameOnCard) => this.setState({nameOnCard})}
-                           value={this.state.nameOnCard}/>
+                onChangeText={(nameOnCard) => this.setState({nameOnCard})}
+                value={this.state.nameOnCard}/>
             </View>
 
             <View style={[styles.content]}>
@@ -102,9 +102,9 @@ export class AddToCardForm extends React.Component {
                 <RkText rkType='subtitle'>Card Code</RkText>
               </View>
               <PasswordTextInput maxLength={3}
-                                 keyboardType='numeric'
-                                 onChangeText={(cardCode) => this.setState({cardCode})}
-                                 value={this.state.cardCode}/>
+                keyboardType='numeric'
+                onChangeText={(cardCode) => this.setState({cardCode})}
+                value={this.state.cardCode}/>
             </View>
           </View>
           <View>
@@ -156,4 +156,4 @@ let styles = RkStyleSheet.create(theme => ({
     borderWidth: 0.5,
     borderColor: theme.colors.border.solid,
   },
-}));
+}))

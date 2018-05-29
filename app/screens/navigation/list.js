@@ -1,16 +1,16 @@
-import React from 'react';
+import React from 'react'
 import {
   ListView,
   TouchableHighlight,
   View,
   StyleSheet
-} from 'react-native';
+} from 'react-native'
 import {
   RkText,
   RkStyleSheet,
   RkTheme
-} from 'react-native-ui-kitten';
-import {MainRoutes} from '../../config/navigation/routes';
+} from 'react-native-ui-kitten'
+import {MainRoutes} from '../../config/navigation/routes'
 
 export class ListMenu extends React.Component {
   static navigationOptions = {
@@ -18,11 +18,11 @@ export class ListMenu extends React.Component {
   };
 
   constructor(props) {
-    super(props);
-    let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    super(props)
+    let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
 
-    this.data = ds.cloneWithRows(MainRoutes);
-    this.renderRow = this._renderRow.bind(this);
+    this.data = ds.cloneWithRows(MainRoutes)
+    this.renderRow = this._renderRow.bind(this)
   }
 
   _renderRow(row) {
@@ -35,7 +35,7 @@ export class ListMenu extends React.Component {
         }}>
         <View style={styles.container}>
           <RkText style={styles.icon}
-                  rkType='primary moon xxlarge'>{row.icon}</RkText>
+            rkType='primary moon xxlarge'>{row.icon}</RkText>
           <RkText>{row.title}</RkText>
         </View>
       </TouchableHighlight>
@@ -73,4 +73,4 @@ let styles = RkStyleSheet.create(theme => ({
     textAlign: 'center',
     marginRight: 16
   }
-}));
+}))

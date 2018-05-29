@@ -63,16 +63,16 @@ const Colors = {
   chartsAreaStroke:'#097fe5',
   chartsAreaFill: '#d6ecff'
 
-};
+}
 
 const Fonts = {
   light: 'Roboto-Light',
   regular: 'Roboto-Regular',
   bold: 'Roboto-Medium',
   logo: 'Righteous-Regular',
-};
+}
 
-const FontBaseValue = scale(18);
+const FontBaseValue = scale(18)
 
 export const KittenTheme = {
   name: 'light',
@@ -188,4 +188,4 @@ export const KittenTheme = {
       logo: Fonts.logo
     }
   }
-};
+}

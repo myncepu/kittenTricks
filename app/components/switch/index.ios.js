@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 import {
   Switch,
-} from 'react-native';
+} from 'react-native'
 import {RkComponent} from 'react-native-ui-kitten'
 
 
@@ -17,22 +17,22 @@ export class RkSwitch extends RkComponent {
   selectedType = 'selected';
 
   constructor(props) {
-    super(props);
+    super(props)
     this.onChange = this.props.onValueChange ?
       this.props.onValueChange
-      : () => true;
+      : () => true
   }
 
   render() {
-    let {main, container} = this.defineStyles();
-    let onColor = this.extractNonStyleValue(container, 'onColor');
-    let offColor = this.extractNonStyleValue(container, 'offColor');
+    let {main, container} = this.defineStyles()
+    let onColor = this.extractNonStyleValue(container, 'onColor')
+    let offColor = this.extractNonStyleValue(container, 'offColor')
 
     return (
       <Switch style={this.props.style}
-              value={this.props.value}
-              onValueChange={(value) => this.onChange(value)}
-              onTintColor={onColor}/>
+        value={this.props.value}
+        onValueChange={(value) => this.onChange(value)}
+        onTintColor={onColor}/>
     )
   }
 }

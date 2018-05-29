@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 import {
   View,
   Image,
   Keyboard
-} from 'react-native';
+} from 'react-native'
 import {
   RkButton,
   RkText,
@@ -11,9 +11,9 @@ import {
   RkStyleSheet,
   RkTheme,
   RkAvoidKeyboard
-} from 'react-native-ui-kitten';
-import {GradientButton} from '../../components/';
-import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
+} from 'react-native-ui-kitten'
+import {GradientButton} from '../../components/'
+import {scale, scaleModerate, scaleVertical} from '../../utils/scale'
 
 export class SignUp extends React.Component {
   static navigationOptions = {
@@ -21,15 +21,15 @@ export class SignUp extends React.Component {
   };
 
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   render() {
     let renderIcon = () => {
       if (RkTheme.current.name === 'light')
-        return <Image style={styles.image} source={require('../../assets/images/logo.png')}/>;
+        return <Image style={styles.image} source={require('../../assets/images/logo.png')}/>
       return <Image style={styles.image} source={require('../../assets/images/logoDark.png')}/>
-    };
+    }
     return (
       <RkAvoidKeyboard
         style={styles.screen}
@@ -94,4 +94,4 @@ let styles = RkStyleSheet.create(theme => ({
     flexDirection: 'row',
     justifyContent: 'center'
   },
-}));
+}))

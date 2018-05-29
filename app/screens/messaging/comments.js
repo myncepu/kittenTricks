@@ -1,17 +1,17 @@
-import React from 'react';
+import React from 'react'
 import {
   FlatList,
   View,
   StyleSheet,
   TouchableOpacity
-} from 'react-native';
+} from 'react-native'
 import {
   RkStyleSheet,
   RkText
-} from 'react-native-ui-kitten';
-import {Avatar} from '../../components';
-import {data} from '../../data';
-let moment = require('moment');
+} from 'react-native-ui-kitten'
+import {Avatar} from '../../components'
+import {data} from '../../data'
+let moment = require('moment')
 
 export class Comments extends React.Component {
   static navigationOptions = {
@@ -19,17 +19,17 @@ export class Comments extends React.Component {
   };
 
   constructor(props) {
-    super(props);
-    let postId = this.props.navigation.params ? this.props.navigation.params.postId : undefined;
-    this.chats = data.getComments(postId);
+    super(props)
+    let postId = this.props.navigation.params ? this.props.navigation.params.postId : undefined
+    this.chats = data.getComments(postId)
     this.state = {
       data: this.chats
-    };
-    this.renderItem = this._renderItem.bind(this);
+    }
+    this.renderItem = this._renderItem.bind(this)
   }
 
   _keyExtractor(item, index) {
-    return item.id;
+    return item.id
   }
 
   _renderSeparator() {
@@ -39,7 +39,7 @@ export class Comments extends React.Component {
   }
 
   _renderItem(info) {
-    let name = `${info.item.user.firstName} ${info.item.user.lastName}`;
+    let name = `${info.item.user.firstName} ${info.item.user.lastName}`
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={() => this.props.navigation.navigate('ProfileV1', {id: info.item.user.id})}>
@@ -95,4 +95,4 @@ let styles = RkStyleSheet.create(theme => ({
     height: StyleSheet.hairlineWidth,
     backgroundColor: theme.colors.border.base
   }
-}));
+}))

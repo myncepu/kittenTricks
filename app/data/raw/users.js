@@ -11,7 +11,7 @@ let images = [
   require('../img/Image9.png'),
   require('../img/Image5.png'),
   require('../img/Image7.png'),
-];
+]
 
 const users = [{
   id: 1,
@@ -189,6 +189,6 @@ const users = [{
   followersCount: 5433,
   images: images,
   photo: require('../img/avatars/Image12.png'),
-}];
+}]
 
 export default users

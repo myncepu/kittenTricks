@@ -1,22 +1,22 @@
-import React from 'react';
+import React from 'react'
 import {
   StyleSheet,
   TouchableOpacity,
   View
-} from 'react-native';
+} from 'react-native'
 import {
   RkText,
   RkTheme
-} from 'react-native-ui-kitten';
-import {FontAwesome} from '../assets/icons';
+} from 'react-native-ui-kitten'
+import {FontAwesome} from '../assets/icons'
 
 export class FindFriends extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   render() {
-    let color = {color: this.props.selected ? this.props.color : RkTheme.current.colors.disabled};
+    let color = {color: this.props.selected ? this.props.color : RkTheme.current.colors.disabled}
 
     return (
       <TouchableOpacity style={[styles.wrapper, this.props.style]} onPress={this.props.onPress}>
@@ -49,4 +49,4 @@ let styles = StyleSheet.create({
   icon: {
     width: 35
   }
-});
+})

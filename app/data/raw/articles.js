@@ -168,6 +168,6 @@ const articles = [{
   'text': 'My trip to Spain last summer. I think that it was the most interesting trip in my life.',
   'comments': []
 },
-];
+]
 
-export default articles;
+export default articles

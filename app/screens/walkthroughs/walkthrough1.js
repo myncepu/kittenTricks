@@ -1,24 +1,24 @@
-import React from 'react';
+import React from 'react'
 import {
   Image,
   View
-} from 'react-native';
+} from 'react-native'
 import {
   RkText,
   RkStyleSheet,
   RkTheme
-} from 'react-native-ui-kitten';
+} from 'react-native-ui-kitten'
 
 export class Walkthrough1 extends React.Component {
 
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   render() {
     let image = RkTheme.current.name === 'light'
       ? <Image source={require('../../assets/images/kittenImage.png')}/>
-      : <Image source={require('../../assets/images/kittenImageDark.png')}/>;
+      : <Image source={require('../../assets/images/kittenImageDark.png')}/>
 
     return (
       <View style={styles.screen}>
@@ -39,4 +39,4 @@ let styles = RkStyleSheet.create(theme => ({
   text: {
     marginTop: 20
   }
-}));
+}))

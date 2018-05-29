@@ -1,25 +1,25 @@
-import React from 'react';
+import React from 'react'
 import {
   View,
   Dimensions
-} from 'react-native';
+} from 'react-native'
 import {
   RkComponent,
   RkText,
   RkTheme
-} from 'react-native-ui-kitten';
+} from 'react-native-ui-kitten'
 
 import {
   VictoryChart,
   VictoryAxis,
   VictoryArea,
-} from "victory-native";
+} from 'victory-native'
 
 export class AreaSmoothedChart extends RkComponent {
 
   constructor(props) {
-    super(props);
-    this.colors = RkTheme.current.colors.charts.followersArea;
+    super(props)
+    this.colors = RkTheme.current.colors.charts.followersArea
     this.data = [
       [
         {x: 1, y: 1.0, key: 0},
@@ -61,7 +61,7 @@ export class AreaSmoothedChart extends RkComponent {
   }
 
   componentWillMount() {
-    this.size = Dimensions.get('window').width;
+    this.size = Dimensions.get('window').width
   }
 
   render() {
@@ -72,7 +72,7 @@ export class AreaSmoothedChart extends RkComponent {
           <VictoryAxis
             tickValues={['Sun', 'Mon', 'Tue', ' Wed', 'Thu', 'Fri', 'Sat']}
             style={{
-              axis: {stroke: "transparent"},
+              axis: {stroke: 'transparent'},
               tickLabels: {
                 fontSize: 14,
                 stroke: RkTheme.current.colors.text.secondary,
@@ -86,7 +86,7 @@ export class AreaSmoothedChart extends RkComponent {
             dependentAxis
             tickValues={['10k', '20k', '30k', '40k']}
             style={{
-              axis: {stroke: "transparent"},
+              axis: {stroke: 'transparent'},
               grid: {stroke: RkTheme.current.colors.disabled, strokeWidth: 0.5},
               tickLabels: {
                 fontSize: 14,

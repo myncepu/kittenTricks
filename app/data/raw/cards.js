@@ -1,4 +1,4 @@
- const cards =
+const cards =
   [{
     'id': 1,
     'name': 'Cindee Seton',
@@ -35,6 +35,6 @@
     'cardNo': '4911********8396',
     'type': 'visa',
     'currency': 'eur'
-  }];
+  }]
 
-export default cards;
+export default cards

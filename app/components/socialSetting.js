@@ -1,17 +1,17 @@
-import React from 'react';
+import React from 'react'
 import {
   View,
   StyleSheet
-} from 'react-native';
+} from 'react-native'
 import {
   RkText,
   RkTheme
-} from 'react-native-ui-kitten';
-import {RkSwitch} from './switch/index';
+} from 'react-native-ui-kitten'
+import {RkSwitch} from './switch/index'
 export class SocialSetting extends React.Component {
 
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       selected: this.props.selected
     }
@@ -19,7 +19,7 @@ export class SocialSetting extends React.Component {
 
   render() {
 
-    let color = this.state.selected ? this.props.tintColor : RkTheme.current.colors.disabled;
+    let color = this.state.selected ? this.props.tintColor : RkTheme.current.colors.disabled
 
     return (
       <View style={styles.container}>
@@ -49,4 +49,4 @@ let styles = StyleSheet.create({
     width: 35,
     alignItems: 'center'
   }
-});
+})

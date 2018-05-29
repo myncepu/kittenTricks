@@ -1,17 +1,17 @@
-import React from 'react';
+import React from 'react'
 import {
   FlatList,
   Image,
   View,
   TouchableOpacity
-} from 'react-native';
+} from 'react-native'
 import {
   RkText,
   RkCard, RkStyleSheet
-} from 'react-native-ui-kitten';
-import {SocialBar} from '../../components';
-import {data} from '../../data';
-let moment = require('moment');
+} from 'react-native-ui-kitten'
+import {SocialBar} from '../../components'
+import {data} from '../../data'
+let moment = require('moment')
 
 
 export class Articles3 extends React.Component {
@@ -20,13 +20,13 @@ export class Articles3 extends React.Component {
   };
 
   constructor(props) {
-    super(props);
-    this.data = data.getArticles();
-    this.renderItem = this._renderItem.bind(this);
+    super(props)
+    this.data = data.getArticles()
+    this.renderItem = this._renderItem.bind(this)
   }
 
   _keyExtractor(post, index) {
-    return post.id;
+    return post.id
   }
 
   _renderItem(info) {
@@ -77,4 +77,4 @@ let styles = RkStyleSheet.create(theme => ({
   time: {
     marginTop: 5
   }
-}));
+}))

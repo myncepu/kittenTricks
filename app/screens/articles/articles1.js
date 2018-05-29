@@ -1,17 +1,17 @@
-import React from 'react';
+import React from 'react'
 import {
   FlatList,
   Image,
   View,
   TouchableOpacity
-} from 'react-native';
+} from 'react-native'
 import {
   RkText,
   RkCard, RkStyleSheet
-} from 'react-native-ui-kitten';
-import {SocialBar} from '../../components';
-import {data} from '../../data';
-let moment = require('moment');
+} from 'react-native-ui-kitten'
+import {SocialBar} from '../../components'
+import {data} from '../../data'
+let moment = require('moment')
 
 export class Articles1 extends React.Component {
   static navigationOptions = {
@@ -19,14 +19,14 @@ export class Articles1 extends React.Component {
   };
 
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.data = data.getArticles();
-    this.renderItem = this._renderItem.bind(this);
+    this.data = data.getArticles()
+    this.renderItem = this._renderItem.bind(this)
   }
 
   _keyExtractor(post, index) {
-    return post.id;
+    return post.id
   }
 
   _renderItem(info) {
@@ -50,13 +50,13 @@ export class Articles1 extends React.Component {
   }
 
   render() {
-    let info = {};
-    info.item = this.data[0];
+    let info = {}
+    info.item = this.data[0]
     return (
       <FlatList data={this.data}
-                renderItem={this.renderItem}
-                keyExtractor={this._keyExtractor}
-                style={styles.root}/>
+        renderItem={this.renderItem}
+        keyExtractor={this._keyExtractor}
+        style={styles.root}/>
 
     )
   }
@@ -72,4 +72,4 @@ let styles = RkStyleSheet.create(theme => ({
   footer: {
     width: 240
   }
-}));
+}))

@@ -1,16 +1,16 @@
-import React from 'react';
+import React from 'react'
 import {
   RkButton,
   RkTextInput,
   RkText,
   RkStyleSheet
-} from 'react-native-ui-kitten';
-import {FontAwesome} from '../assets/icons';
+} from 'react-native-ui-kitten'
+import {FontAwesome} from '../assets/icons'
 
 export class CardInput extends React.Component {
 
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       hidden: true,
       cardNumber: ''
@@ -20,24 +20,24 @@ export class CardInput extends React.Component {
   formatCreditNumber(cardNumber, hiddenFlag) {
     return hiddenFlag
       ? cardNumber.replace(/\D/g, '')
-      : cardNumber.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
+      : cardNumber.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim()
   }
 
   render() {
 
     let button = (
       <RkButton style={styles.button} rkType='clear'
-                onPress={() => {
-                  this.setState({hidden: !this.state.hidden});
-                  this.setState({cardNumber: this.formatCreditNumber(this.state.cardNumber, !this.state.hidden)})
-                }}>
+        onPress={() => {
+          this.setState({hidden: !this.state.hidden})
+          this.setState({cardNumber: this.formatCreditNumber(this.state.cardNumber, !this.state.hidden)})
+        }}>
         <RkText style={styles.icon} rkType='awesome secondaryColor'>{FontAwesome.slashEye}</RkText>
       </RkButton>
-    );
+    )
 
     let {
       ...inputProps
-    } = this.props;
+    } = this.props
 
     return (
       <RkTextInput
@@ -65,4 +65,4 @@ let styles = RkStyleSheet.create(theme => ({
   button: {
     right: 17
   }
-}));
+}))

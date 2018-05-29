@@ -1,6 +1,6 @@
-import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import {RkStyleSheet} from 'react-native-ui-kitten';
+import React from 'react'
+import {View, StyleSheet} from 'react-native'
+import {RkStyleSheet} from 'react-native-ui-kitten'
 
 export class Ellipsis extends React.Component {
   render() {
@@ -27,4 +27,4 @@ let styles = RkStyleSheet.create(theme => ({
     backgroundColor: theme.colors.text.base,
     marginHorizontal: 2.5
   }
-}));
+}))

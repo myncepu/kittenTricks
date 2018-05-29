@@ -1,30 +1,30 @@
-import React from 'react';
+import React from 'react'
 import {
   View,
   Image,
   Dimensions
-} from 'react-native';
+} from 'react-native'
 import {
   RkComponent,
   RkText,
   RkTheme,
   RkStyleSheet
-} from 'react-native-ui-kitten';
+} from 'react-native-ui-kitten'
 
 import {
   VictoryPie,
-} from "victory-native";
+} from 'victory-native'
 
-import {Svg, Text as SvgText} from 'react-native-svg';
-import {scale} from '../../utils/scale';
+import {Svg, Text as SvgText} from 'react-native-svg'
+import {scale} from '../../utils/scale'
 
 
 export class DoughnutChart extends RkComponent {
 
   constructor(props) {
-    super(props);
-    this.size = 300;
-    this.fontSize = 40;
+    super(props)
+    this.size = 300
+    this.fontSize = 40
     this.state = {
       selected: 0,
       data: [
@@ -85,7 +85,7 @@ export class DoughnutChart extends RkComponent {
               padding={scale(25)}
               innerRadius={scale(70)}
               events={[{
-                target: "data",
+                target: 'data',
                 eventHandlers: {
                   onPressIn: (evt, props) => this.handlePress(evt, props)
                 }
@@ -136,4 +136,4 @@ let styles = RkStyleSheet.create(theme => ({
     borderRadius: 5,
     marginRight: 5
   }
-}));
+}))

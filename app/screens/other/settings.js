@@ -1,20 +1,20 @@
-import React from 'react';
+import React from 'react'
 import {
   ScrollView,
   View,
   TouchableOpacity,
   StyleSheet
-} from 'react-native';
+} from 'react-native'
 import {
   RkText,
   RkStyleSheet,
   RkTheme
-} from 'react-native-ui-kitten';
+} from 'react-native-ui-kitten'
 import {
   RkSwitch,
   FindFriends
-} from '../../components';
-import {FontAwesome} from '../../assets/icons';
+} from '../../components'
+import {FontAwesome} from '../../assets/icons'
 
 export class Settings extends React.Component {
   static navigationOptions = {
@@ -22,7 +22,7 @@ export class Settings extends React.Component {
   };
 
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       sendPush: true,
@@ -53,16 +53,16 @@ export class Settings extends React.Component {
           <View style={styles.row}>
             <RkText rkType='header6'>Send Push Notifications</RkText>
             <RkSwitch style={styles.switch}
-                      value={this.state.sendPush}
-                      name="Push"
-                      onValueChange={(sendPush) => this.setState({sendPush})}/>
+              value={this.state.sendPush}
+              name="Push"
+              onValueChange={(sendPush) => this.setState({sendPush})}/>
           </View>
           <View style={styles.row}>
             <RkText rkType='header6'>Refresh Automatically</RkText>
             <RkSwitch style={styles.switch}
-                      value={this.state.shouldRefresh}
-                      name="Refresh"
-                      onValueChange={(shouldRefresh) => this.setState({shouldRefresh})}/>
+              value={this.state.shouldRefresh}
+              name="Refresh"
+              onValueChange={(shouldRefresh) => this.setState({shouldRefresh})}/>
           </View>
         </View>
         <View style={styles.section}>
@@ -71,22 +71,22 @@ export class Settings extends React.Component {
           </View>
           <View style={styles.row}>
             <FindFriends color={RkTheme.current.colors.twitter} text='Twitter' icon={FontAwesome.twitter}
-                         selected={this.state.twitterEnabled}
-                         onPress={() => {
-                           this.setState({twitterEnabled: !this.state.twitterEnabled})
-                         }}/>
+              selected={this.state.twitterEnabled}
+              onPress={() => {
+                this.setState({twitterEnabled: !this.state.twitterEnabled})
+              }}/>
           </View>
           <View style={styles.row}>
             <FindFriends color={RkTheme.current.colors.google} text='Google' icon={FontAwesome.google}
-                         selected={this.state.googleEnabled} onPress={() => {
-              this.setState({googleEnabled: !this.state.googleEnabled})
-            }}/>
+              selected={this.state.googleEnabled} onPress={() => {
+                this.setState({googleEnabled: !this.state.googleEnabled})
+              }}/>
           </View>
           <View style={styles.row}>
             <FindFriends color={RkTheme.current.colors.facebook} text='Facebook' icon={FontAwesome.facebook}
-                         selected={this.state.facebookEnabled} onPress={() => {
-              this.setState({facebookEnabled: !this.state.facebookEnabled})
-            }}/>
+              selected={this.state.facebookEnabled} onPress={() => {
+                this.setState({facebookEnabled: !this.state.facebookEnabled})
+              }}/>
           </View>
         </View>
 
@@ -148,4 +148,4 @@ let styles = RkStyleSheet.create(theme => ({
   switch: {
     marginVertical: 14
   },
-}));
+}))

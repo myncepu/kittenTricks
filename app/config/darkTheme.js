@@ -60,16 +60,16 @@ const Colors = {
   chartsAreaStroke:'#2942ff',
   chartsAreaFill: '#0d1238'
 
-};
+}
 
 const Fonts = {
   light: 'Roboto-Light',
   regular: 'Roboto-Regular',
   bold: 'Roboto-Medium',
   logo: 'Righteous-Regular',
-};
+}
 
-const FontBaseValue = 18;
+const FontBaseValue = 18
 
 export const DarkKittenTheme = {
   name: 'dark',
@@ -187,4 +187,4 @@ export const DarkKittenTheme = {
       logo: Fonts.logo
     }
   }
-};
+}

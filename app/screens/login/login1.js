@@ -1,10 +1,10 @@
-import React from 'react';
+import React from 'react'
 import {
   View,
   Image,
   Dimensions,
   Keyboard
-} from 'react-native';
+} from 'react-native'
 import {
   RkButton,
   RkText,
@@ -12,10 +12,10 @@ import {
   RkAvoidKeyboard,
   RkStyleSheet,
   RkTheme
-} from 'react-native-ui-kitten';
-import {FontAwesome} from '../../assets/icons';
-import {GradientButton} from '../../components/gradientButton';
-import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
+} from 'react-native-ui-kitten'
+import {FontAwesome} from '../../assets/icons'
+import {GradientButton} from '../../components/gradientButton'
+import {scale, scaleModerate, scaleVertical} from '../../utils/scale'
 
 export class LoginV1 extends React.Component {
   static navigationOptions = {
@@ -23,25 +23,25 @@ export class LoginV1 extends React.Component {
   };
 
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   _renderImage(image) {
-    let contentHeight = scaleModerate(375, 1);
-    let height = Dimensions.get('window').height - contentHeight;
-    let width = Dimensions.get('window').width;
+    let contentHeight = scaleModerate(375, 1)
+    let height = Dimensions.get('window').height - contentHeight
+    let width = Dimensions.get('window').width
 
     if (RkTheme.current.name === 'light')
       image = (<Image style={[styles.image, {height, width}]}
-                      source={require('../../assets/images/backgroundLoginV1.png')}/>);
+        source={require('../../assets/images/backgroundLoginV1.png')}/>)
     else
       image = (<Image style={[styles.image, {height, width}]}
-                      source={require('../../assets/images/backgroundLoginV1DarkTheme.png')}/>);
-    return image;
+        source={require('../../assets/images/backgroundLoginV1DarkTheme.png')}/>)
+    return image
   }
 
   render() {
-    let image = this._renderImage();
+    let image = this._renderImage()
 
     return (
       <RkAvoidKeyboard
@@ -115,4 +115,4 @@ let styles = RkStyleSheet.create(theme => ({
     justifyContent: 'center',
     flexDirection: 'row',
   }
-}));
+}))

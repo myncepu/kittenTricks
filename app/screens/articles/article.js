@@ -1,19 +1,19 @@
-import React from 'react';
+import React from 'react'
 import {
   ScrollView,
   Image,
   View,
   TouchableOpacity
-} from 'react-native';
+} from 'react-native'
 import {
   RkCard,
   RkText,
   RkStyleSheet
-} from 'react-native-ui-kitten';
-import {data} from '../../data';
-import {Avatar} from '../../components';
-import {SocialBar} from '../../components';
-let moment = require('moment');
+} from 'react-native-ui-kitten'
+import {data} from '../../data'
+import {Avatar} from '../../components'
+import {SocialBar} from '../../components'
+let moment = require('moment')
 
 
 export class Article extends React.Component {
@@ -22,10 +22,10 @@ export class Article extends React.Component {
   };
 
   constructor(props) {
-    super(props);
-    let {params} = this.props.navigation.state;
-    let id = params ? params.id : 1;
-    this.data = data.getArticle(id);
+    super(props)
+    let {params} = this.props.navigation.state
+    let id = params ? params.id : 1
+    this.data = data.getArticle(id)
   }
 
   render() {
@@ -63,4 +63,4 @@ let styles = RkStyleSheet.create(theme => ({
   title: {
     marginBottom: 5
   },
-}));
+}))

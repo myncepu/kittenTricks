@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   FlatList,
   View,
@@ -6,8 +6,8 @@ import {
   Image,
   TouchableOpacity,
   Keyboard
-} from 'react-native';
-import {InteractionManager} from 'react-native';
+} from 'react-native'
+import {InteractionManager} from 'react-native'
 import {
   RkButton,
   RkText,
@@ -15,18 +15,18 @@ import {
   RkAvoidKeyboard,
   RkStyleSheet,
   RkTheme
-} from 'react-native-ui-kitten';
-import _ from 'lodash';
-import {FontAwesome} from '../../assets/icons';
-import {data} from '../../data';
-import {Avatar} from '../../components/avatar';
-import {scale} from '../../utils/scale';
-let moment = require('moment');
+} from 'react-native-ui-kitten'
+import _ from 'lodash'
+import {FontAwesome} from '../../assets/icons'
+import {data} from '../../data'
+import {Avatar} from '../../components/avatar'
+import {scale} from '../../utils/scale'
+let moment = require('moment')
 
 
 let getUserId = (navigation) => {
-  return navigation.state.params ? navigation.state.params.userId : undefined;
-};
+  return navigation.state.params ? navigation.state.params.userId : undefined
+}
 
 
 export class Chat extends React.Component {
@@ -37,8 +37,8 @@ export class Chat extends React.Component {
         <TouchableOpacity onPress={() => navigation.navigate('ProfileV1', {id: user.id})}>
           <Avatar style={styles.avatar} rkType='small' img={user.photo}/>
         </TouchableOpacity>
-      );
-    };
+      )
+    }
 
     let renderTitle = (user) => {
       return (
@@ -49,49 +49,49 @@ export class Chat extends React.Component {
           </View>
         </TouchableOpacity>
       )
-    };
+    }
 
 
-    let user = data.getUser(getUserId(navigation));
-    let rightButton = renderAvatar(user);
-    let title = renderTitle(user);
+    let user = data.getUser(getUserId(navigation))
+    let rightButton = renderAvatar(user)
+    let title = renderTitle(user)
     return (
       {
         headerTitle: title,
         headerRight: rightButton
-      });
+      })
   };
 
   constructor(props) {
-    super(props);
-    let conversation = data.getConversation(getUserId(this.props.navigation));
+    super(props)
+    let conversation = data.getConversation(getUserId(this.props.navigation))
 
     this.state = {
       data: conversation
-    };
+    }
   }
 
   componentDidMount() {
     InteractionManager.runAfterInteractions(() => {
-      this.refs.list.scrollToEnd();
-    });
+      this.refs.list.scrollToEnd()
+    })
   }
 
   _keyExtractor(post, index) {
-    return post.id;
+    return post.id
   }
 
   _renderItem(info) {
-    let inMessage = info.item.type === 'in';
+    let inMessage = info.item.type === 'in'
     let backgroundColor = inMessage
       ? RkTheme.current.colors.chat.messageInBackground
-      : RkTheme.current.colors.chat.messageOutBackground;
-    let itemStyle = inMessage ? styles.itemIn : styles.itemOut;
+      : RkTheme.current.colors.chat.messageOutBackground
+    let itemStyle = inMessage ? styles.itemIn : styles.itemOut
 
     let renderDate = (time) => (
       <RkText style={styles.time} rkType='secondary7 hintColor'>
         {moment().add(time, 'seconds').format('LT')}
-      </RkText>);
+      </RkText>)
 
     return (
       <View style={[styles.item, itemStyle]}>
@@ -106,32 +106,32 @@ export class Chat extends React.Component {
 
   _scroll() {
     if (Platform.OS === 'ios') {
-      this.refs.list.scrollToEnd();
+      this.refs.list.scrollToEnd()
     } else {
-      _.delay(() => this.refs.list.scrollToEnd(), 100);
+      _.delay(() => this.refs.list.scrollToEnd(), 100)
     }
   }
 
   _pushMessage() {
     if (!this.state.message)
-      return;
+      return
 
-    this.state.data.messages.push({id: this.state.data.messages.length, time: 0, type: 'out', text: this.state.message});
-    this.setState({message: ''});
-    this._scroll(true);
+    this.state.data.messages.push({id: this.state.data.messages.length, time: 0, type: 'out', text: this.state.message})
+    this.setState({message: ''})
+    this._scroll(true)
   }
 
   render() {
     return (
       <RkAvoidKeyboard style={styles.container} onResponderRelease={(event) => {
-        Keyboard.dismiss();
+        Keyboard.dismiss()
       }}>
         <FlatList ref='list'
-                  extraData={this.state}
-                  style={styles.list}
-                  data={this.state.data.messages}
-                  keyExtractor={this._keyExtractor}
-                  renderItem={this._renderItem}/>
+          extraData={this.state}
+          style={styles.list}
+          data={this.state.data.messages}
+          keyExtractor={this._keyExtractor}
+          renderItem={this._renderItem}/>
         <View style={styles.footer}>
           <RkButton style={styles.plus} rkType='clear'>
             <RkText rkType='awesome secondaryColor'>{FontAwesome.plus}</RkText>
@@ -205,4 +205,4 @@ let styles = RkStyleSheet.create(theme => ({
     height: 40,
     marginLeft: 10,
   }
-}));
+}))

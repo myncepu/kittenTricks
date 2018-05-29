@@ -1,17 +1,17 @@
-import React from 'react';
+import React from 'react'
 import {
   View,
   Image,
   Keyboard
-} from 'react-native';
+} from 'react-native'
 import {
   RkStyleSheet,
   RkText,
   RkTextInput,
   RkTheme
-} from 'react-native-ui-kitten';
-import {GradientButton} from '../../components/';
-import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
+} from 'react-native-ui-kitten'
+import {GradientButton} from '../../components/'
+import {scale, scaleModerate, scaleVertical} from '../../utils/scale'
 
 export class PasswordRecovery extends React.Component {
   static navigationOptions = {
@@ -19,21 +19,21 @@ export class PasswordRecovery extends React.Component {
   };
 
   constructor(props) {
-    super(props);
+    super(props)
   }
 
   render() {
     let renderIcon = () => {
       if (RkTheme.current.name === 'light')
-        return <Image style={styles.image} source={require('../../assets/images/logo.png')}/>;
+        return <Image style={styles.image} source={require('../../assets/images/logo.png')}/>
       return <Image style={styles.image} source={require('../../assets/images/logoDark.png')}/>
-    };
+    }
 
     return (
       <View behavior='position'
-            style={styles.screen}
-            onStartShouldSetResponder={ (e) => true}
-            onResponderRelease={ (e) => Keyboard.dismiss()}>
+        style={styles.screen}
+        onStartShouldSetResponder={ (e) => true}
+        onResponderRelease={ (e) => Keyboard.dismiss()}>
         <View style={styles.header}>
           {renderIcon()}
           <RkText rkType='h1'>Password Recovery</RkText>
@@ -71,4 +71,4 @@ let styles = RkStyleSheet.create(theme => ({
   content: {
     alignItems: 'center'
   }
-}));
+}))

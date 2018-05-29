@@ -1,41 +1,41 @@
-import React from 'react';
+import React from 'react'
 import {
   View,
   FlatList,
   Dimensions,
   StyleSheet
-} from 'react-native';
+} from 'react-native'
 
 export class Walkthrough extends React.Component {
 
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.onScrollEnd = this._onScrollEnd.bind(this);
+    this.onScrollEnd = this._onScrollEnd.bind(this)
   }
 
   _renderItem = ({item}) => {
-    let {width} = Dimensions.get('window');
+    let {width} = Dimensions.get('window')
     return (
       <View style={[styles.item, {width: width}]}>
         {item}
       </View>
-    );
+    )
 
   };
 
   _onScrollEnd(e) {
-    let contentOffset = e.nativeEvent.contentOffset;
-    let viewSize = e.nativeEvent.layoutMeasurement;
-    let pageNum = Math.floor(contentOffset.x / viewSize.width);
+    let contentOffset = e.nativeEvent.contentOffset
+    let viewSize = e.nativeEvent.layoutMeasurement
+    let pageNum = Math.floor(contentOffset.x / viewSize.width)
     if (this.props.onChanged) {
-      this.props.onChanged(pageNum);
+      this.props.onChanged(pageNum)
     }
   }
 
   render() {
 
-    let items = this.props.children;
+    let items = this.props.children
 
     return (
       <FlatList
@@ -63,4 +63,4 @@ let styles = StyleSheet.create({
   item: {
     flex: 1,
   }
-});
+})

@@ -1,14 +1,14 @@
-import React from 'react';
+import React from 'react'
 import {
   View,
   Image,
   Dimensions
-} from 'react-native';
+} from 'react-native'
 import {
   RkComponent,
   RkTheme,
   RkText
-} from 'react-native-ui-kitten';
+} from 'react-native-ui-kitten'
 
 import {
   VictoryChart,
@@ -16,13 +16,13 @@ import {
   VictoryArea,
   VictoryScatter,
   VictoryGroup
-} from 'victory-native';
+} from 'victory-native'
 
 
 export class AreaChart extends RkComponent {
 
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       data: [
         {x: 1, y: 1},
@@ -40,32 +40,32 @@ export class AreaChart extends RkComponent {
   }
 
   componentWillMount() {
-    this.size = Dimensions.get('window').width;
+    this.size = Dimensions.get('window').width
   }
 
   componentDidMount() {
     this.setStateInterval = setInterval(() => {
-      let positive = Math.random() > 0.5;
-      let newValue = this.state.data[this.state.data.length - 1].y;
+      let positive = Math.random() > 0.5
+      let newValue = this.state.data[this.state.data.length - 1].y
       if (newValue > 3) {
         positive = false
       } else if (newValue < 2) {
         positive = true
       }
-      newValue = positive ? newValue + 1 : newValue - 1;
+      newValue = positive ? newValue + 1 : newValue - 1
       let newData = this.state.data.map((d, i) => {
-        let x = d.x;
-        let y = i == this.state.data.length - 1 ? newValue : this.state.data[i + 1].y;
+        let x = d.x
+        let y = i == this.state.data.length - 1 ? newValue : this.state.data[i + 1].y
         return {x, y}
-      });
+      })
       this.setState({
         data: newData
-      });
-    }, 3000);
+      })
+    }, 3000)
   }
 
   componentWillUnmount() {
-    clearInterval(this.setStateInterval);
+    clearInterval(this.setStateInterval)
   }
 
   render() {

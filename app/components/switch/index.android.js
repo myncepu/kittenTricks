@@ -9,14 +9,14 @@ import {
   Animated,
   Easing,
   PanResponder,
-} from 'react-native';
+} from 'react-native'
 import {RkComponent} from 'react-native-ui-kitten'
 
-let width = 52;
-let height = 32;
-let animationDuration = 200;
-let offLeftValue = -2;
-let onLeftValue = 20;
+let width = 52
+let height = 32
+let animationDuration = 200
+let offLeftValue = -2
+let onLeftValue = 20
 
 export class RkSwitch extends RkComponent {
   componentName = 'RkSwitch';
@@ -30,12 +30,12 @@ export class RkSwitch extends RkComponent {
   selectedType = 'selected';
 
   constructor(props, context) {
-    super(props, context);
+    super(props, context)
 
-    this.offset = width - height;
-    this.handlerSize = height;
+    this.offset = width - height
+    this.handlerSize = height
 
-    let value = props.value;
+    let value = props.value
     this.state = {
       name: this.props.name,
       value: value,
@@ -48,7 +48,7 @@ export class RkSwitch extends RkComponent {
   }
 
   componentWillReceiveProps(nextProps) {
-    let {value} = this.state;
+    let {value} = this.state
     if (nextProps === this.props) {
       return
     }
@@ -76,7 +76,7 @@ export class RkSwitch extends RkComponent {
   };
 
   _onPanResponderMove = (evt, gestureState) => {
-    let {value, toggleable} = this.state;
+    let {value, toggleable} = this.state
 
     this.setState({
       toggleable: value ? (gestureState.dx < 10) : (gestureState.dx > -10)
@@ -84,8 +84,8 @@ export class RkSwitch extends RkComponent {
   };
 
   _onPanResponderRelease = (evt, gestureState) => {
-    let {toggleable} = this.state;
-    let {disabled, onValueChange} = this.props;
+    let {toggleable} = this.state
+    let {disabled, onValueChange} = this.props
 
     if (toggleable && !disabled) {
       if (onValueChange) {
@@ -95,24 +95,24 @@ export class RkSwitch extends RkComponent {
   };
 
   toggleSwitch = (result, callback = () => null) => {
-    let {value, switchAnimation} = this.state;
-    let toValue = !value;
+    let {value, switchAnimation} = this.state
+    let toValue = !value
 
-    this.animateHandler(this.handlerSize);
+    this.animateHandler(this.handlerSize)
 
     this.animateSwitch(toValue, () => {
-      callback(toValue);
+      callback(toValue)
       this.setState({
         value: toValue,
         left: toValue ? onLeftValue : offLeftValue
-      });
-     switchAnimation.setValue(toValue ? -1 : 1)
+      })
+      switchAnimation.setValue(toValue ? -1 : 1)
     })
 
   };
 
   animateSwitch = (value, callback = () => null) => {
-    let {switchAnimation} = this.state;
+    let {switchAnimation} = this.state
 
     Animated.timing(switchAnimation,
       {
@@ -124,7 +124,7 @@ export class RkSwitch extends RkComponent {
   };
 
   animateHandler = (value, callback = () => null) => {
-    let {handlerAnimation} = this.state;
+    let {handlerAnimation} = this.state
 
     Animated.timing(handlerAnimation,
       {
@@ -136,21 +136,21 @@ export class RkSwitch extends RkComponent {
   };
 
   render() {
-    let {switchAnimation, handlerAnimation, left, value} = this.state;
+    let {switchAnimation, handlerAnimation, left, value} = this.state
     let {
       style,
       ...rest
-    } = this.props;
+    } = this.props
 
-    let type = value ? this.selectedType : '';
-    let {container, thumb} = this.defineStyles(type);
-    let onColor = this.extractNonStyleValue(container, 'onColor');
-    let offColor = this.extractNonStyleValue(container, 'offColor');
+    let type = value ? this.selectedType : ''
+    let {container, thumb} = this.defineStyles(type)
+    let onColor = this.extractNonStyleValue(container, 'onColor')
+    let offColor = this.extractNonStyleValue(container, 'offColor')
 
     let interpolatedBackgroundColor = switchAnimation.interpolate({
       inputRange: value ? [-this.offset, -1] : [1, this.offset],
       outputRange: [offColor, onColor]
-    });
+    })
 
     return (
       <Animated.View

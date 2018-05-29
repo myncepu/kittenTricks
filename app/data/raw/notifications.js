@@ -54,6 +54,6 @@ const notifications = [
     time: -2431,
     attach: require('../img/Image8.png'),
   }
-];
+]
 
-export default notifications;
+export default notifications

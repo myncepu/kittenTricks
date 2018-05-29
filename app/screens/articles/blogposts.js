@@ -1,17 +1,17 @@
-import React from 'react';
+import React from 'react'
 import {
   FlatList,
   View,
   Image,
   TouchableOpacity
-} from 'react-native';
+} from 'react-native'
 import {
   RkCard, RkStyleSheet,
   RkText
-} from 'react-native-ui-kitten';
-import {Avatar} from '../../components';
-import {data} from '../../data';
-let moment = require('moment');
+} from 'react-native-ui-kitten'
+import {Avatar} from '../../components'
+import {data} from '../../data'
+let moment = require('moment')
 
 export class Blogposts extends React.Component {
   static navigationOptions = {
@@ -19,16 +19,16 @@ export class Blogposts extends React.Component {
   };
 
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.renderItem = this._renderItem.bind(this);
+    this.renderItem = this._renderItem.bind(this)
     this.state = {
       data: data.getArticles('post')
     }
   }
 
   _keyExtractor(post, index) {
-    return post.id;
+    return post.id
   }
 
   _renderItem(info) {
@@ -86,4 +86,4 @@ let styles = RkStyleSheet.create(theme => ({
   avatar: {
     marginRight: 17
   }
-}));
+}))

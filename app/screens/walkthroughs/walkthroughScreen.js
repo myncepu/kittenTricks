@@ -1,13 +1,13 @@
-import React from 'react';
+import React from 'react'
 import {
   View
-} from 'react-native';
-import {RkStyleSheet} from 'react-native-ui-kitten';
-import {GradientButton} from '../../components/';
-import {Walkthrough} from '../../components/walkthrough';
-import {Walkthrough1} from './walkthrough1';
-import {Walkthrough2} from './walkthrough2';
-import {PaginationIndicator} from '../../components';
+} from 'react-native'
+import {RkStyleSheet} from 'react-native-ui-kitten'
+import {GradientButton} from '../../components/'
+import {Walkthrough} from '../../components/walkthrough'
+import {Walkthrough1} from './walkthrough1'
+import {Walkthrough2} from './walkthrough2'
+import {PaginationIndicator} from '../../components'
 
 
 export class WalkthroughScreen extends React.Component {
@@ -16,8 +16,8 @@ export class WalkthroughScreen extends React.Component {
   };
 
   constructor(props) {
-    super(props);
-    this.state = {index: 0};
+    super(props)
+    this.state = {index: 0}
   }
 
   changeIndex(index) {
@@ -55,4 +55,4 @@ let styles = RkStyleSheet.create(theme => ({
     marginTop: 25,
     marginHorizontal: 16,
   }
-}));
+}))

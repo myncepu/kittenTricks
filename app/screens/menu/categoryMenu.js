@@ -1,28 +1,28 @@
-import React from 'react';
+import React from 'react'
 import PropTypes from 'prop-types'
 import {
   TouchableHighlight,
   View,
   FlatList,
   StyleSheet
-} from 'react-native';
+} from 'react-native'
 import {
   RkStyleSheet,
   RkTheme,
   RkText
-} from 'react-native-ui-kitten';
+} from 'react-native-ui-kitten'
 
 export class CategoryMenu extends React.Component {
 
   constructor(props) {
-    super(props);
-    this.isEmpty = this.props.items.length === 0;
+    super(props)
+    this.isEmpty = this.props.items.length === 0
     if (!this.isEmpty) {
-      this.data = this.props.items;
-      this.renderRow = this._renderRow.bind(this);
-      this.navigate = this._navigate.bind(this);
+      this.data = this.props.items
+      this.renderRow = this._renderRow.bind(this)
+      this.navigate = this._navigate.bind(this)
     }
-    this.state = {selected: true};
+    this.state = {selected: true}
   }
 
   _navigate(row) {
@@ -41,7 +41,7 @@ export class CategoryMenu extends React.Component {
         underlayColor={RkTheme.current.colors.button.underlay}
         activeOpacity={1}
         onPress={() => {
-          this.navigate(row.item);
+          this.navigate(row.item)
         }}>
         <View>
           <RkText>{row.item.title}</RkText>
@@ -51,7 +51,7 @@ export class CategoryMenu extends React.Component {
   }
 
   _keyExtractor(item, index) {
-    return item.id;
+    return item.id
   }
 
   render() {
@@ -89,9 +89,9 @@ let styles = RkStyleSheet.create(theme => ({
     justifyContent: 'center',
     backgroundColor: theme.colors.screen.base
   }
-}));
+}))
 
 CategoryMenu.propTypes = {
   navigation: PropTypes.object.isRequired,
   items: PropTypes.array.isRequired
-};
+}

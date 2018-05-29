@@ -1,50 +1,50 @@
-import React from 'react';
+import React from 'react'
 import {
   DrawerNavigator,
   StackNavigator
-} from 'react-navigation';
-import {withRkTheme} from 'react-native-ui-kitten';
-import {AppRoutes} from './config/navigation/routesBuilder';
-import * as Screens from './screens';
-import {bootstrap} from './config/bootstrap';
-import track from './config/analytics';
+} from 'react-navigation'
+import {withRkTheme} from 'react-native-ui-kitten'
+import {AppRoutes} from './config/navigation/routesBuilder'
+import * as Screens from './screens'
+import {bootstrap} from './config/bootstrap'
+import track from './config/analytics'
 import {data} from './data'
-import {AppLoading, Font} from 'expo';
-import {View} from "react-native";
+import {AppLoading, Font} from 'expo'
+import {View} from 'react-native'
 
-bootstrap();
-data.populateData();
+bootstrap()
+data.populateData()
 
 function getCurrentRouteName(navigationState) {
   if (!navigationState) {
-    return null;
+    return null
   }
-  const route = navigationState.routes[navigationState.index];
+  const route = navigationState.routes[navigationState.index]
   if (route.routes) {
-    return getCurrentRouteName(route);
+    return getCurrentRouteName(route)
   }
-  return route.routeName;
+  return route.routeName
 }
 
-let SideMenu = withRkTheme(Screens.SideMenu);
+let SideMenu = withRkTheme(Screens.SideMenu)
 const KittenApp = StackNavigator({
   First: {
     screen: Screens.SplashScreen
   },
   Home: {
     screen: DrawerNavigator({
-        ...AppRoutes,
-      },
-      {
-        drawerOpenRoute: 'DrawerOpen',
-        drawerCloseRoute: 'DrawerClose',
-        drawerToggleRoute: 'DrawerToggle',
-        contentComponent: (props) => <SideMenu {...props}/>
-      })
+      ...AppRoutes,
+    },
+    {
+      drawerOpenRoute: 'DrawerOpen',
+      drawerCloseRoute: 'DrawerClose',
+      drawerToggleRoute: 'DrawerToggle',
+      contentComponent: (props) => <SideMenu {...props}/>
+    })
   }
 }, {
   headerMode: 'none',
-});
+})
 
 export default class App extends React.Component {
   state = {
@@ -52,7 +52,7 @@ export default class App extends React.Component {
   };
 
   componentWillMount() {
-    this._loadAssets();
+    this._loadAssets()
   }
 
   _loadAssets = async() => {
@@ -64,30 +64,30 @@ export default class App extends React.Component {
       'Roboto-Medium': require('./assets/fonts/Roboto-Medium.ttf'),
       'Roboto-Regular': require('./assets/fonts/Roboto-Regular.ttf'),
       'Roboto-Light': require('./assets/fonts/Roboto-Light.ttf'),
-    });
-    this.setState({loaded: true});
+    })
+    this.setState({loaded: true})
   };
 
   render() {
     if (!this.state.loaded) {
-      return <AppLoading />;
+      return <AppLoading />
     }
 
     return (
       <View style={{flex: 1}}>
         <KittenApp
           onNavigationStateChange={(prevState, currentState) => {
-            const currentScreen = getCurrentRouteName(currentState);
-            const prevScreen = getCurrentRouteName(prevState);
+            const currentScreen = getCurrentRouteName(currentState)
+            const prevScreen = getCurrentRouteName(prevState)
 
             if (prevScreen !== currentScreen) {
-              track(currentScreen);
+              track(currentScreen)
             }
           }}
         />
       </View>
-    );
+    )
   }
 }
 
-Expo.registerRootComponent(App);
+Expo.registerRootComponent(App)

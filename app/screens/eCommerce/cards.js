@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   StyleSheet,
   FlatList,
@@ -6,19 +6,19 @@ import {
   Image,
   TouchableOpacity,
   Modal
-} from 'react-native';
+} from 'react-native'
 import {
   RkText,
   RkCard,
   RkButton,
   RkStyleSheet,
   RkTheme
-} from 'react-native-ui-kitten';
-import {LinearGradient} from 'expo';
-import {data} from '../../data';
-import {PasswordTextInput} from '../../components/passwordTextInput';
-import {UIConstants} from '../../config/appConstants';
-import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
+} from 'react-native-ui-kitten'
+import {LinearGradient} from 'expo'
+import {data} from '../../data'
+import {PasswordTextInput} from '../../components/passwordTextInput'
+import {UIConstants} from '../../config/appConstants'
+import {scale, scaleModerate, scaleVertical} from '../../utils/scale'
 
 export class Cards extends React.Component {
   static navigationOptions = {
@@ -26,8 +26,8 @@ export class Cards extends React.Component {
   };
 
   constructor(props) {
-    super(props);
-    this.data = data.getCards();
+    super(props)
+    this.data = data.getCards()
     this.state = {modalVisible: false}
   }
 
@@ -37,36 +37,36 @@ export class Cards extends React.Component {
         return {
           gradient: RkTheme.current.colors.gradients.visa,
           icon: require('../../assets/icons/visaIcon.png')
-        };
+        }
       case 'mastercard':
         return {
           gradient: RkTheme.current.colors.gradients.mastercard,
           icon: require('../../assets/icons/masterCardIcon.png')
-        };
+        }
       case 'axp':
         return {
           gradient: RkTheme.current.colors.gradients.axp,
           icon: require('../../assets/icons/americanExpressIcon.png')
-        };
+        }
     }
   }
 
   _formatCurrency(amount, currency) {
-    let symbol;
+    let symbol
     switch (currency) {
       case 'usd':
-        symbol = '$';
-        break;
+        symbol = '$'
+        break
       case 'eur':
-        symbol = '€';
-        break;
+        symbol = '€'
+        break
     }
-    return `${symbol}${amount}`;
+    return `${symbol}${amount}`
   }
 
   _prepareCardNo(cardNo) {
-    let re = /\*+/;
-    let parts = cardNo.split(re);
+    let re = /\*+/
+    let parts = cardNo.split(re)
     return {firstPart: parts[0], lastPart: parts[1]}
   }
 
@@ -81,23 +81,23 @@ export class Cards extends React.Component {
   }
 
   _setModalVisible(visible) {
-    this.setState({modalVisible: visible});
+    this.setState({modalVisible: visible})
   }
 
   _renderItem(info) {
 
-    let {gradient, icon} = this._getCardStyle(info.item.type);
-    let {firstPart, lastPart} = this._prepareCardNo(info.item.cardNo);
+    let {gradient, icon} = this._getCardStyle(info.item.type)
+    let {firstPart, lastPart} = this._prepareCardNo(info.item.cardNo)
 
     return (
       <RkCard rkType='credit' style={styles.card}>
         <TouchableOpacity delayPressIn={70}
-                          activeOpacity={0.8}
-                          onPress={() => this._setModalVisible(true)}>
+          activeOpacity={0.8}
+          onPress={() => this._setModalVisible(true)}>
           <LinearGradient colors={gradient}
-                          start={{x: 0.0, y: 0.5}}
-                          end={{x: 1, y: 0.5}}
-                          style={styles.background}>
+            start={{x: 0.0, y: 0.5}}
+            end={{x: 1, y: 0.5}}
+            style={styles.background}>
             <View rkCardHeader>
               <RkText rkType='header4 inverseColor'>{info.item.bank}</RkText>
               <Image source={icon}/>
@@ -129,11 +129,11 @@ export class Cards extends React.Component {
     return (
       <View style={styles.root}>
         <FlatList style={styles.list}
-                  showsVerticalScrollIndicator={false}
-                  ListFooterComponent={() => this._renderFooter()}
-                  keyExtractor={(item) => item.id}
-                  data={this.data}
-                  renderItem={(info) => this._renderItem(info)}/>
+          showsVerticalScrollIndicator={false}
+          ListFooterComponent={() => this._renderFooter()}
+          keyExtractor={(item) => item.id}
+          data={this.data}
+          renderItem={(info) => this._renderItem(info)}/>
         <Modal
           animationType={'fade'}
           transparent={true}
@@ -147,14 +147,14 @@ export class Cards extends React.Component {
               </View>
               <View style={styles.popupButtons}>
                 <RkButton onPress={() => this._setModalVisible(false)}
-                          style={styles.popupButton}
-                          rkType='clear'>
+                  style={styles.popupButton}
+                  rkType='clear'>
                   <RkText rkType='light'>CANCEL</RkText>
                 </RkButton>
                 <View style={styles.separator}/>
                 <RkButton onPress={() => this._setModalVisible(false)}
-                          style={styles.popupButton}
-                          rkType='clear'>
+                  style={styles.popupButton}
+                  rkType='clear'>
                   <RkText>OK</RkText>
                 </RkButton>
               </View>
@@ -232,4 +232,4 @@ let styles = RkStyleSheet.create(theme => ({
     backgroundColor: theme.colors.border.base,
     width: 1
   }
-}));
+}))

@@ -1,31 +1,31 @@
-import React from 'react';
+import React from 'react'
 import {
   StyleSheet,
   View,
   Dimensions
-} from 'react-native';
-import _ from 'lodash';
-import {RkText, RkButton, RkStyleSheet} from 'react-native-ui-kitten';
-import {FontAwesome} from '../assets/icons';
-import {UIConstants} from '../config/appConstants';
-import {scale, scaleModerate, scaleVertical} from '../utils/scale';
+} from 'react-native'
+import _ from 'lodash'
+import {RkText, RkButton, RkStyleSheet} from 'react-native-ui-kitten'
+import {FontAwesome} from '../assets/icons'
+import {UIConstants} from '../config/appConstants'
+import {scale, scaleModerate, scaleVertical} from '../utils/scale'
 
 export class NavBar extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = {width: undefined};
+    super(props)
+    this.state = {width: undefined}
 
   }
 
   _renderRight(headerRight) {
-    let windowWidth = Dimensions.get('window').width;
+    let windowWidth = Dimensions.get('window').width
     const width = this.state.width
       ? (windowWidth - this.state.width) / 2
-      : undefined;
+      : undefined
 
     return headerRight && (
-        <View style={[{width}, styles.right]}>{headerRight}</View>
-      );
+      <View style={[{width}, styles.right]}>{headerRight}</View>
+    )
   }
 
   _renderLeft(headerLeft) {
@@ -35,13 +35,13 @@ export class NavBar extends React.Component {
       )
     }
 
-    let windowWidth = Dimensions.get('window').width;
+    let windowWidth = Dimensions.get('window').width
     const width = this.state.width
       ? (windowWidth - this.state.width) / 2
-      : undefined;
+      : undefined
 
     let renderLeftContent = () => {
-      let index = _.findIndex(this.props.headerProps.scenes, {isActive: true});
+      let index = _.findIndex(this.props.headerProps.scenes, {isActive: true})
       if (index > 0) {
         return <RkButton
           rkType='clear'
@@ -62,7 +62,7 @@ export class NavBar extends React.Component {
           <RkText rkType='awesome'>{FontAwesome.bars}</RkText>
         </RkButton>
       }
-    };
+    }
 
     return (
       <View style={[{width}, styles.left]}>
@@ -74,14 +74,14 @@ export class NavBar extends React.Component {
   _renderTitle(title, headerTitle) {
     if (headerTitle) {
       return (
-        <View style={styles.title} onLayout={onLayout}>{headerTitle}</View>);
+        <View style={styles.title} onLayout={onLayout}>{headerTitle}</View>)
     }
 
     const onLayout = (e) => {
       this.setState({
         width: e.nativeEvent.layout.width,
-      });
-    };
+      })
+    }
 
     return (
       <View style={styles.title} onLayout={onLayout}>
@@ -91,7 +91,7 @@ export class NavBar extends React.Component {
   }
 
   render() {
-    let options = this.props.headerProps.getScreenDetails(this.props.headerProps.scene).options;
+    let options = this.props.headerProps.getScreenDetails(this.props.headerProps.scene).options
     return (
       <View style={styles.layout}>
         <View style={styles.container}>
@@ -137,4 +137,4 @@ let styles = RkStyleSheet.create(theme => ({
   menu: {
     width: 40
   }
-}));
+}))

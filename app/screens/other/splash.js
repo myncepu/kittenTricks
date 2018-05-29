@@ -1,62 +1,62 @@
-import React from 'react';
+import React from 'react'
 import {
   StyleSheet,
   Image,
   View,
   Dimensions,
   StatusBar
-} from 'react-native';
+} from 'react-native'
 import {
   RkText,
   RkTheme
 } from 'react-native-ui-kitten'
-import {ProgressBar} from '../../components';
+import {ProgressBar} from '../../components'
 import {
   KittenTheme
-} from '../../config/theme';
-import {NavigationActions} from 'react-navigation';
-import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
+} from '../../config/theme'
+import {NavigationActions} from 'react-navigation'
+import {scale, scaleModerate, scaleVertical} from '../../utils/scale'
 
-let timeFrame = 500;
+let timeFrame = 500
 
 export class SplashScreen extends React.Component {
 
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       progress: 0
     }
   }
 
   componentDidMount() {
-    StatusBar.setHidden(true, 'none');
-    RkTheme.setTheme(KittenTheme);
+    StatusBar.setHidden(true, 'none')
+    RkTheme.setTheme(KittenTheme)
 
     this.timer = setInterval(() => {
       if (this.state.progress == 1) {
-        clearInterval(this.timer);
+        clearInterval(this.timer)
         setTimeout(() => {
-          StatusBar.setHidden(false, 'slide');
+          StatusBar.setHidden(false, 'slide')
           let toHome = NavigationActions.reset({
             index: 0,
             actions: [NavigationActions.navigate({routeName: 'Home'})]
-          });
+          })
           this.props.navigation.dispatch(toHome)
-        }, timeFrame);
+        }, timeFrame)
       } else {
-        let random = Math.random() * 0.5;
-        let progress = this.state.progress + random;
+        let random = Math.random() * 0.5
+        let progress = this.state.progress + random
         if (progress > 1) {
-          progress = 1;
+          progress = 1
         }
-        this.setState({progress});
+        this.setState({progress})
       }
     }, timeFrame)
 
   }
 
   render() {
-    let width = Dimensions.get('window').width;
+    let width = Dimensions.get('window').width
     return (
       <View style={styles.container}>
         <View>
@@ -99,4 +99,4 @@ let styles = StyleSheet.create({
     marginBottom: 35,
     backgroundColor: '#e5e5e5'
   }
-});
+})

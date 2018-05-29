@@ -80,6 +80,6 @@ export const Conversations = [
         text: 'Cool! Let\'s give Malia a call and ask her for her help right now'
       }]
   }
-];
+]
 
-export default Conversations;
+export default Conversations

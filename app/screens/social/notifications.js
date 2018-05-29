@@ -1,13 +1,13 @@
-import React from 'react';
+import React from 'react'
 import {
   ListView,
   View,
   Image
-} from 'react-native';
-import {RkStyleSheet, RkText} from 'react-native-ui-kitten';
-import {Avatar} from '../../components';
-import {data} from '../../data';
-let moment = require('moment');
+} from 'react-native'
+import {RkStyleSheet, RkText} from 'react-native-ui-kitten'
+import {Avatar} from '../../components'
+import {data} from '../../data'
+let moment = require('moment')
 
 export class Notifications extends React.Component {
   static navigationOptions = {
@@ -15,22 +15,22 @@ export class Notifications extends React.Component {
   };
 
   constructor(props) {
-    super(props);
+    super(props)
 
-    let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    this.data = ds.cloneWithRows(data.getNotifications());
+    let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
+    this.data = ds.cloneWithRows(data.getNotifications())
   }
 
 
   renderRow(row) {
 
-    let username = `${row.user.firstName} ${row.user.lastName}`;
-    let hasAttachment = row.attach !== undefined;
-    let attachment = <View/>;
+    let username = `${row.user.firstName} ${row.user.lastName}`
+    let hasAttachment = row.attach !== undefined
+    let attachment = <View/>
 
-    let mainContentStyle;
+    let mainContentStyle
     if (hasAttachment) {
-      mainContentStyle = styles.mainContent;
+      mainContentStyle = styles.mainContent
       attachment =
         <Image style={styles.attachment} source={row.attach}/>
     }
@@ -38,9 +38,9 @@ export class Notifications extends React.Component {
     return (
       <View style={styles.container}>
         <Avatar img={row.user.photo}
-                rkType='circle'
-                style={styles.avatar}
-                badge={row.type}/>
+          rkType='circle'
+          style={styles.avatar}
+          badge={row.type}/>
         <View style={styles.content}>
           <View style={mainContentStyle}>
             <View style={styles.text}>
@@ -102,4 +102,4 @@ let styles = RkStyleSheet.create(theme => ({
     height: 50,
     width: 50
   }
-}));
+}))
