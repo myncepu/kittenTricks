@@ -41,7 +41,9 @@ export class SplashScreen extends React.Component {
             index: 0,
             actions: [NavigationActions.navigate({routeName: 'Home'})]
           })
+          // console.log('this.props.navigation', this.props.navigation)
           this.props.navigation.dispatch(toHome)
+          // console.log('this.props.navigation', this.props.navigation)
         }, timeFrame)
       } else {
         let random = Math.random() * 0.5
