@@ -40,5 +40,8 @@
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": 2,
     "no-console": 1,
+    no-magic-numbers: [
+      "error", { "ignore": [-1, 0, 1] }
+    ],
   }
 }
